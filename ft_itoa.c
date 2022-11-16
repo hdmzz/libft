@@ -9,10 +9,10 @@
 /*   Updated: 2022/11/11 13:29:45 by hdamitzi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <limits.h>
 #include "libft.h"
 
-static	int	ft_numberlen(int n)
+static	int	ft_numberlen(long n)
 {
 	int	count;
 
@@ -31,9 +31,9 @@ static	int	ft_numberlen(int n)
 
 char	*ft_itoa(int n)
 {
+	long	newnmbr;
+	long	nbrlen;
 	char	*res;
-	int		nbrlen;
-	int		newnmbr;
 
 	nbrlen = ft_numberlen(n);
 	res = (char *)malloc(sizeof(char) * (nbrlen + 1));
