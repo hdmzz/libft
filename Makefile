@@ -18,8 +18,9 @@ SRC = ./ft_bzero.c \
 		./ft_strrchr.c \
 		./ft_strncmp.c \
 		./ft_tolower.c \
-		./ft_toupper.c
-		
+		./ft_toupper.c \
+		./ft_atoi.c
+
 
 CFLAGS = -Wall -Wextra -Werror -I.
 OBJ = ${SRC:.c = .o}

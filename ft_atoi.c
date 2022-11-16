@@ -12,47 +12,25 @@
 
 #include "libft.h"
 
-static	int	ft_numberlen(int n)
+int	ft_atoi(const char *str)
 {
-	int	count;
+	int	res;
+	int	sign;
 
-	count = 0;
-	if (n == 0)
-		return (1);
-	if (n < 0)
-		count++;
-	while (n != 0)
+	res = 0;
+	sign = 1;
+	while (*str >= 9 && *str <= 13 || *str == ' ')
+		str++;
+	if (*str == '+' || *str == '-')
 	{
-		n = n / 10;
-		count++;
+		if (*str == '-')
+			sign = -1;
+		str++;
 	}
-	return (count);
-}
-
-char	*ft_itoa(int n)
-{
-	char	*res;
-	int		nbrlen;
-	int		newnmbr;
-
-	nbrlen = ft_numberlen(n);
-	res = (char *)malloc(sizeof(char) * (nbrlen + 1));
-	newnmbr = n;
-	if (newnmbr < 0)
-		newnmbr *= -1;
-	if (!res)
-		return (NULL);
-	if (newnmbr == 0)
-		res[0] = '0';
-	else
+	while (*str >= '0' && *str <= '9')
 	{
-		while (nbrlen-- && newnmbr != 0)
-		{
-			res[nbrlen] = (newnmbr % 10) + '0';
-			newnmbr = newnmbr / 10;
-		}
-		if (n < 0)
-			res[nbrlen] = '-';
+		res = res * 10 + (*str - '0');
+		str++;
 	}
-	return (res);
+	return (res * sign);
 }
