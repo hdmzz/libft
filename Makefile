@@ -15,11 +15,14 @@ SRC = ./ft_bzero.c \
 		./ft_strlcat.c \
 		./ft_strlcpy.c \
 		./ft_strlen.c \
+		./ft_strdup.c \
 		./ft_strrchr.c \
 		./ft_strncmp.c \
 		./ft_tolower.c \
 		./ft_toupper.c \
-		./ft_atoi.c
+		./ft_atoi.c \
+		./ft_strnstr.c \
+		./ft_calloc.c
 
 
 CFLAGS = -Wall -Wextra -Werror -I.

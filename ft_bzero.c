@@ -13,8 +13,8 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t	i;
 	char	*buff;
+	size_t	i;
 
 	buff = (char *)s;
 	i = 0;
