@@ -53,7 +53,10 @@ static char	*ft_wordup(char	const *str, int len)
 
 	temp = (char *)malloc(sizeof(char) * (len + 1));
 	if (!temp)
+	{
+		free(temp);
 		return (NULL);
+	}
 	temp[len] = 0;
 	while (len--)
 		temp[len] = str[len];
@@ -69,9 +72,12 @@ char	**ft_split(char const *s, char c)
 
 	wordcount = ft_count_words(s, c);
 	split = (char **)malloc(sizeof(char *) * (wordcount + 1));
-	j = 0;
 	if (!split)
+	{
+		free(split);
 		return (NULL);
+	}
+	j = 0;
 	while (*s)
 	{
 		while (*s && ft_isseparator(*s, c))

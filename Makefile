@@ -22,7 +22,9 @@ SRC = ./ft_bzero.c \
 		./ft_toupper.c \
 		./ft_atoi.c \
 		./ft_strnstr.c \
-		./ft_calloc.c
+		./ft_calloc.c \
+		./ft_substr.c \
+		./ft_strjoin.c
 
 
 CFLAGS = -Wall -Wextra -Werror -I.
