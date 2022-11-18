@@ -1,52 +1,61 @@
-SRCS = ft_bzero.c \
-		ft_isalnum.c \
-		ft_isalpha.c \
-		ft_isdigit.c \
-		ft_isascii.c \
-		ft_isprint.c \
-		ft_itoa.c \
-		ft_memcpy.c \
-		ft_memmove.c \
-		ft_memset.c \
-		ft_memchr.c \
-		ft_memcmp.c \
-		ft_split.c \
-		ft_strchr.c \
-		ft_strlcat.c \
-		ft_strlcpy.c \
-		ft_strlen.c \
-		ft_strdup.c \
-		ft_strrchr.c \
-		ft_strncmp.c \
-		ft_tolower.c \
-		ft_toupper.c \
-		ft_atoi.c \
-		ft_strnstr.c \
-		ft_calloc.c \
-		ft_substr.c \
-		ft_strjoin.c \
-		ft_strtrim.c \
-		ft_strmapi.c \
-		ft_striteri.c \
-		ft_putchar_fd.c \
-		ft_putstr_fd.c \
-		ft_putendl_fd.c \
-		ft_putnbr_fd.c
-
-OBJS = ${SRCS:.c = .o}
 NAME = libft.a
-CC = gcc -Wall -Wextra -Werror
-%.o: %.c libft.h
-				${CC} -I. -c $< -o ${<:.c=.o}
-all: ${NAME}
 
-$(NAME): ${OBJS} libft.h
-				ar rcs ${NAME} ${OBJS}
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+AR = ar rcs
+RM = rm -f
+FILES = ft_bzero \
+		ft_isalnum \
+		ft_isalpha \
+		ft_isdigit \
+		ft_isascii \
+		ft_isprint \
+		ft_itoa \
+		ft_memcpy \
+		ft_memmove \
+		ft_memset \
+		ft_memchr \
+		ft_memcmp \
+		ft_split \
+		ft_strchr \
+		ft_strlcat \
+		ft_strlcpy \
+		ft_strlen \
+		ft_strdup \
+		ft_strrchr \
+		ft_strncmp \
+		ft_tolower \
+		ft_toupper \
+		ft_atoi \
+		ft_strnstr \
+		ft_calloc \
+		ft_substr \
+		ft_strjoin \
+		ft_strtrim \
+		ft_strmapi \
+		ft_striteri \
+		ft_putchar_fd \
+		ft_putstr_fd \
+		ft_putendl_fd \
+		ft_putnbr_fd
+
+SRCS_DIR = ./
+SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
+OBJS = $(addprefix $(SRCS_DIR), $(addsuffix .o, $(FILES)))
+.c.o:	$(SRCS)
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+
+$(NAME):	$(OBJS)
+			$(AR) $@ $^
+
+all: $(NAME)
+
 clean:
-		rm -f ${OBJS}
+		$(RM) $(OBJS)
 
 fclean: clean
-		rm -f ${NAME}
+		$(RM) $(NAME)
 
-re: fclean all
+re: clean all
+
 .PHONY:	all clean fclean re
