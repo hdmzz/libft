@@ -24,7 +24,9 @@ SRC = ./ft_bzero.c \
 		./ft_strnstr.c \
 		./ft_calloc.c \
 		./ft_substr.c \
-		./ft_strjoin.c
+		./ft_strjoin.c \
+		./ft_strtrim.c \
+		./ft_strmapi.c
 
 
 CFLAGS = -Wall -Wextra -Werror -I.
