@@ -24,9 +24,3 @@ void	ft_putstr_fd(char *s, int fd)
 		i++;
 	}
 }
-
-int main(int qc, char  **av)
-{
-	int fd = open(av[1], O_RDWR);
-	ft_putstr_fd(av[2], fd);
-}
