@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdamitzi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 11:24:03 by hdamitzi          #+#    #+#             */
-/*   Updated: 2022/11/18 11:24:06 by hdamitzi         ###   ########lyon.fr   */
+/*   Created: 2022/11/18 12:49:12 by hdamitzi          #+#    #+#             */
+/*   Updated: 2022/11/18 12:49:22 by hdamitzi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <fcntl.h>
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	ft_putstr_fd(char *s, int fd)
 {
-	char	*new;
-	size_t	s_len;
-	size_t	start;
+	int	i;
 
-	if (!s || !f)
-		return (NULL);
-	s_len = ft_strlen(s);
-	new = (char *)malloc(sizeof(char) * (s_len + 1));
-	if (!new)
-		return (NULL);
-	start = 0;
-	while (s[start])
+	i = 0;
+	while (s[i])
 	{
-		new[start] = f(s_len, s[start]);
-		start++;
+		write(fd, &s[i], 1);
+		i++;
 	}
-	new[start] = '\0';
-	return (new);
+}
+
+int main(int qc, char  **av)
+{
+	int fd = open(av[1], O_RDWR);
+	ft_putstr_fd(av[2], fd);
 }
