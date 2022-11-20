@@ -60,7 +60,7 @@ char	**ft_split(char const *s, char c)
 			res[i] = (char *)malloc((s - tmp + 1));
 			if (!(res[i]))
 				return (ft_free(res));
-			strncpy(res[i++], tmp, s - tmp + 1);
+			ft_strlcpy(res[i++], tmp, s - tmp + 1);
 		}
 		else if (*s)
 			s++;
