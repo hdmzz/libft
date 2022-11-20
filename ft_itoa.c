@@ -42,6 +42,7 @@ char	*ft_itoa(int n)
 		newnmbr *= -1;
 	if (!res)
 		return (NULL);
+	res[nbrlen] = '\0';
 	if (newnmbr == 0)
 		res[0] = '0';
 	else
