@@ -39,19 +39,36 @@ FILES = ft_bzero \
 		ft_putendl_fd \
 		ft_putnbr_fd
 
+FILES_BONUS = ft_lstnew \
+				ft_lstadd_front \
+				ft_lstsize \
+				ft_lst_last \
+				ft_lstadd_back \
+				ft_lstdelone \
+				ft_lstclear \
+				ft_lstiter \
+				ft_lstmap
+
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
 OBJS = $(addprefix $(SRCS_DIR), $(addsuffix .o, $(FILES)))
-.c.o:	$(SRCS)
-	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
-$(NAME):	$(OBJS)
-			$(AR) $@ $^
+SRCS_BONUS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES_BONUS)))
+OBJS_BONUS = $(addprefix $(SRCS_DIR), $(addsuffix .o, $(FILES_BONUS)))
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 all: $(NAME)
 
+$(NAME): $(OBJS)
+	$(AR) $@ $^
+
+bonus: $(OBJS_BONUS)
+	$(AR) $(NAME) $<  
+
 clean:
-		$(RM) $(OBJS)
+		$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
 		$(RM) $(NAME)
