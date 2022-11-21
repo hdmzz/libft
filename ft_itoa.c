@@ -12,7 +12,7 @@
 #include <limits.h>
 #include "libft.h"
 
-static	int	ft_numberlen(long n)
+static int	ft_numberlen(long n)
 {
 	int	count;
 

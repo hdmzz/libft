@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdamitzi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 12:07:21 by hdamitzi          #+#    #+#             */
-/*   Updated: 2022/11/14 12:07:24 by hdamitzi         ###   ########lyon.fr   */
+/*   Created: 2022/11/21 12:01:14 by hdamitzi          #+#    #+#             */
+/*   Updated: 2022/11/21 12:01:17 by hdamitzi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	int		i;
-	char	*temp;
+	t_list	*temp;
 
-	i = 0;
-	temp = NULL;
-	while (s[i])
+	if (!*lst || !del)
+		return ;
+	while (*lst)
 	{
-		if (s[i] == (unsigned char)c)
-			temp = (char *)(s + i);
-		i++;
+		temp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = temp;
 	}
-	if (s[i] == (unsigned char)c)
-		temp = (char *)(s + i);
-	return (temp);
 }

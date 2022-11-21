@@ -42,7 +42,7 @@ FILES = ft_bzero \
 FILES_BONUS = ft_lstnew \
 				ft_lstadd_front \
 				ft_lstsize \
-				ft_lst_last \
+				ft_lstlast \
 				ft_lstadd_back \
 				ft_lstdelone \
 				ft_lstclear \
@@ -65,7 +65,7 @@ $(NAME): $(OBJS)
 	$(AR) $@ $^
 
 bonus: $(OBJS_BONUS)
-	$(AR) $(NAME) $<  
+	$(AR) $(NAME) $^
 
 clean:
 		$(RM) $(OBJS) $(OBJS_BONUS)

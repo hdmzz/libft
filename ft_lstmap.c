@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdamitzi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 12:07:21 by hdamitzi          #+#    #+#             */
-/*   Updated: 2022/11/14 12:07:24 by hdamitzi         ###   ########lyon.fr   */
+/*   Created: 2022/11/21 12:23:14 by hdamitzi          #+#    #+#             */
+/*   Updated: 2022/11/21 12:23:17 by hdamitzi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include  "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	int		i;
-	char	*temp;
+	t_list	*newlist;
+	t_list	*newelement;
 
-	i = 0;
-	temp = NULL;
-	while (s[i])
+	newlist = NULL;
+	while (lst)
 	{
-		if (s[i] == (unsigned char)c)
-			temp = (char *)(s + i);
-		i++;
+		newelement = ft_lstnew(f(lst->content));
+		if (!newelement)
+		{
+			ft_lstclear(&newlist, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&newlist, newelement);
+		lst = lst->next;
 	}
-	if (s[i] == (unsigned char)c)
-		temp = (char *)(s + i);
-	return (temp);
+	return (newlist);
 }
