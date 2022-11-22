@@ -5,11 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdamitzi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: b2022/11/21 11:53:53 by hdamitzi          #+#    #+#             */
+/*   Created: b2022/11/21 11:53:53 by hdamitzi          #+#    #+#            */
 /*   Updated: 2022/11/21 11:53:56 by hdamitzi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
 t_list	*ft_lstlast(t_list *lst)
