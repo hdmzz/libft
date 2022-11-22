@@ -17,11 +17,11 @@ void	*ft_calloc(size_t count, size_t size)
 	char	*buff;
 	size_t	i;
 
+	i = count * size;
+	if (i && i / size != count)
+		return (NULL);
 	buff = malloc(size * count);
 	if (!buff)
-		return (NULL);
-	i = count * size;
-	if (i / size != count)
 		return (NULL);
 	ft_bzero(buff, size * count);
 	return (buff);

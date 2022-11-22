@@ -17,6 +17,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	unsigned int	cur;
 
 	cur = 0;
+	if (!s)
+		return ;
 	while (s[cur])
 	{
 		(*f)(cur, &s[cur]);

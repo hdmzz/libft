@@ -40,15 +40,11 @@ static char	**ft_free(char **res)
 	return (0);
 }
 
-char	**ft_split(char const *s, char c)
+static char	**ft_splitwords(char **res, char const *s, char c)
 {
-	char	**res;
 	char	*tmp;
 	int		i;
 
-	res = malloc(sizeof(char *) * (ft_word_count(s, c) + 1));
-	if (!s || !res)
-		return (0);
 	i = 0;
 	while (*s)
 	{
@@ -62,9 +58,22 @@ char	**ft_split(char const *s, char c)
 				return (ft_free(res));
 			ft_strlcpy(res[i++], tmp, s - tmp + 1);
 		}
-		else if (*s)
+		else
 			s++;
 	}
 	res[i] = 0;
+	return (res);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**res;
+
+	if (!s)
+		return (NULL);
+	res = malloc(sizeof(char *) * (ft_word_count(s, c) + 1));
+	if (!res)
+		return (NULL);
+	ft_splitwords(res, s, c);
 	return (res);
 }
