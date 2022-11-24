@@ -9,71 +9,63 @@
 /*   Updated: 2022/11/14 14:24:31 by hdamitzi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-static int	ft_word_count(char const *s, char c)
+static int	numwords(char const *s, char c)
 {
-	int		cnt;
+	int	cur;
+	int	word_num;
 
-	cnt = 0;
-	while (*s)
+	cur = 0;
+	word_num = 0;
+	while (s[cur] != 0)
 	{
-		while (*s && *s == c)
-			s++;
-		if (*s)
-			cnt++;
-		while (*s && *s != c)
-			s++;
+		if (s[cur] != c && (s[cur + 1] == c || s[cur + 1] == 0))
+			word_num++;
+		cur++;
 	}
-	return (cnt);
+	return (word_num);
 }
 
-static char	**ft_free(char **res)
+static int	split_words(char **result, char const *s, char c, int word)
 {
-	int		i;
+	int		start_cur;
+	int		end_cur;
 
-	i = 0;
-	while (res[i])
-		free(res[i++]);
-	free(res);
-	return (0);
-}
-
-static char	**ft_splitwords(char **res, char const *s, char c)
-{
-	char	*tmp;
-	int		i;
-
-	i = 0;
-	while (*s)
+	end_cur = 0;
+	start_cur = 0;
+	while (s[end_cur])
 	{
-		if (*s && *s != c)
+		if (s[end_cur] == c || s[end_cur] == 0)
+			start_cur = end_cur + 1;
+		if (s[end_cur] != c && (s[end_cur + 1] == c || s[end_cur + 1] == 0))
 		{
-			tmp = (char *)s;
-			while (*s && *s != c)
-				s++;
-			res[i] = (char *)malloc((s - tmp + 1));
-			if (!(res[i]))
-				return (ft_free(res));
-			ft_strlcpy(res[i++], tmp, s - tmp + 1);
+			result[word] = malloc(sizeof(char) * (end_cur - start_cur + 2));
+			if (!result[word])
+			{
+				while (word++)
+					free(result[word]);
+				return (0);
+			}
+			ft_strlcpy(result[word], (s + start_cur), end_cur - start_cur + 2);
+			word++;
 		}
-		else
-			s++;
+		end_cur++;
 	}
-	res[i] = 0;
-	return (res);
+	result[word] = 0;
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**res;
+	char	**result;
 
 	if (!s)
 		return (NULL);
-	res = malloc(sizeof(char *) * (ft_word_count(s, c) + 1));
-	if (!res)
+	result = malloc(sizeof(char *) * (numwords(s, c) + 1));
+	if (!result)
 		return (NULL);
-	ft_splitwords(res, s, c);
-	return (res);
+	if (!split_words(result, s, c, 0))
+		return (NULL);
+	return (result);
 }

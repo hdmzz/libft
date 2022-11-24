@@ -7,7 +7,7 @@
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 13:22:05 by hdamitzi          #+#    #+#             */
 /*   Updated: 2022/11/18 13:22:08 by hdamitzi         ###   ########lyon.fr   */
-/*                                                                            */
+/*                                                                            */ 
 /* ************************************************************************** */
 
 #include "libft.h"
@@ -19,8 +19,7 @@ static int	ft_abs(int nbr)
 	return (nbr);
 }
 
-void
-	ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	char	str[13];
 	int		sign;
@@ -42,3 +41,4 @@ void
 		len--;
 	while (len >= 0)
 		write(fd, &str[len--], 1);
+}
