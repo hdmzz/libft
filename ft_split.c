@@ -19,6 +19,7 @@ static char	**ft_free(char **res, int i)
 	while (j < i)
 		free(res[j]);
 	free(res);
+	return (NULL);
 }
 
 static int	ft_wordlen(const char	*s, char sep)
