@@ -11,61 +11,79 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-static int	numwords(char const *s, char c)
+static char	**ft_free(char **res, int i)
 {
-	int	cur;
-	int	word_num;
+	int	j;
 
-	cur = 0;
-	word_num = 0;
-	while (s[cur] != 0)
-	{
-		if (s[cur] != c && (s[cur + 1] == c || s[cur + 1] == 0))
-			word_num++;
-		cur++;
-	}
-	return (word_num);
+	j = 0;
+	while (j < i)
+		free(res[j]);
+	free(res);
 }
 
-static int	split_words(char **result, char const *s, char c, int word)
+static int	ft_wordlen(const char	*s, char sep)
 {
-	int		start_cur;
-	int		end_cur;
+	int	i;
 
-	end_cur = 0;
-	start_cur = 0;
-	while (s[end_cur])
+	i = 0;
+	while (s[i] && s[i] != sep)
+		i++;
+	return (i);
+}
+
+static int	ft_countwords(const char *s, char c)
+{
+	int	count;
+	int	i;
+
+	count = 0;
+	while (*s)
 	{
-		if (s[end_cur] == c || s[end_cur] == 0)
-			start_cur = end_cur + 1;
-		if (s[end_cur] != c && (s[end_cur + 1] == c || s[end_cur + 1] == 0))
-		{
-			result[word] = malloc(sizeof(char) * (end_cur - start_cur + 2));
-			if (!result[word])
-			{
-				while (word++)
-					free(result[word]);
-				return (0);
-			}
-			ft_strlcpy(result[word], (s + start_cur), end_cur - start_cur + 2);
-			word++;
-		}
-		end_cur++;
+		while (*s == c)
+			s++;
+		i =  ft_wordlen(s, c);
+		if (i != 0)
+			count++;
+		s += i;
 	}
-	result[word] = 0;
-	return (1);
+	return (count);
+}
+
+static char	*ft_wordup(const char	*s, int n)
+{
+	char	*buff;
+
+	buff = malloc(sizeof(char) * (n + 1));
+	if (!buff)
+		return (NULL);
+	buff[n] = '\0';
+	while (n--)
+		buff[n] = s[n];
+	return (buff);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**result;
+	char	**split;
+	int		wordcount;
+	int		i;
+	int		j;
 
-	if (!s)
-		return (NULL);
-	result = malloc(sizeof(char *) * (numwords(s, c) + 1));
-	if (!result)
-		return (NULL);
-	if (!split_words(result, s, c, 0))
-		return (NULL);
-	return (result);
+	wordcount = ft_countwords(s, c);
+	split = malloc(sizeof(char *) * (wordcount + 1));
+	j = 0;
+	while (wordcount--)
+	{
+		while (*s && *s == c)
+			s++;
+		i = ft_wordlen(s, c);
+		if (i)
+			split[j] = ft_wordup(s, i);
+		if (!split[j])
+			return (ft_free(split, j));
+		s += i;
+		j++;
+	}
+	split[j] = NULL;
+	return (split);
 }
