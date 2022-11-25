@@ -16,8 +16,8 @@ static char	**ft_free(char **res, int i)
 	int	j;
 
 	j = 0;
-	while (j < i)
-		free(res[j]);
+	while (j < i && res[j] != 0)
+		free(res[j++]);
 	free(res);
 	return (NULL);
 }
@@ -42,7 +42,7 @@ static int	ft_countwords(const char *s, char c)
 	{
 		while (*s == c)
 			s++;
-		i =  ft_wordlen(s, c);
+		i = ft_wordlen(s, c);
 		if (i != 0)
 			count++;
 		s += i;
@@ -72,6 +72,8 @@ char	**ft_split(char const *s, char c)
 
 	wordcount = ft_countwords(s, c);
 	split = malloc(sizeof(char *) * (wordcount + 1));
+	if (!split)
+		return (NULL);
 	j = 0;
 	while (wordcount--)
 	{
