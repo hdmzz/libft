@@ -12,6 +12,7 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
 
@@ -66,4 +67,14 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+int					ft_printf(const char *s, ...);
+unsigned long long	ft_printf_strlen(const char *s);
+
+void				ft_putc(char c, int *total);
+void				ft_puts(char *str, int *total);
+void				ft_putnb_base(unsigned long long nb,
+						char *base, int *total);
+void				ft_putnb(unsigned long long nl, int *total);
+void				ft_put_ptr(void *ptr, int *total);
 #endif
