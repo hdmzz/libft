@@ -6,7 +6,7 @@
 /*   By: hdamitzi <hdamitzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 11:52:54 by hdamitzi          #+#    #+#             */
-/*   Updated: 2023/02/10 10:20:41 by hdamitzi         ###   ########.fr       */
+/*   Updated: 2023/02/10 10:42:29 by hdamitzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_list
 }					t_list;
 
 int					ft_atoi(const char *str);
+long long			ft_atoll(const char *str);
 
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
