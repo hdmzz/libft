@@ -6,7 +6,7 @@
 /*   By: hdamitzi <hdamitzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 10:35:00 by hdamitzi          #+#    #+#             */
-/*   Updated: 2023/02/12 20:22:02 by hdamitzi         ###   ########.fr       */
+/*   Updated: 2023/03/02 17:45:42 by hdamitzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,5 @@ long long	ft_atoll(const char *str)
 		result = result * 10 + (str[i] - '0');
 		i++;
 	}
-	if (result >= 9223372036854775808U && sign == -1)
-		return (0);
-	else if (result >= 9223372036854775807 && sign == 1)
-		return (-1);
 	return (result * sign);
 }
