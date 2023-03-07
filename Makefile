@@ -39,7 +39,8 @@ SRCS		= ft_atoi.c \
 			ft_atoll.c \
 			get_next_line.c \
 			get_next_line_utils.c \
-			ft_isdigitstr.c
+			ft_isdigitstr.c \
+			ft_strspn.c
 SRCS_BONUS	= ft_lstadd_back_bonus.c \
 			ft_lstadd_front_bonus.c \
 			ft_lstclear_bonus.c \
@@ -52,7 +53,7 @@ SRCS_BONUS	= ft_lstadd_back_bonus.c \
 OBJS		= ${SRCS:.c=.o}
 OBJS_BONUS	= ${SRCS_BONUS:.c=.o}
 NAME		= libft.a
-CC			= gcc -Wall -Wextra -Werror
+CC			= gcc -g -Wall -Wextra -Werror
 
 %.o: %.c libft.h Makefile
 			${CC} -I. -c $< -o ${<:.c=.o}

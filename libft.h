@@ -6,7 +6,7 @@
 /*   By: hdamitzi <hdamitzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 11:52:54 by hdamitzi          #+#    #+#             */
-/*   Updated: 2023/02/10 14:37:14 by hdamitzi         ###   ########.fr       */
+/*   Updated: 2023/03/07 16:33:33 by hdamitzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ size_t				gnl_strlen(char *s);
 char				*ft_itoa(int n);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strchr(const char *s, int c);
+size_t	ft_strspn(const char *s, const char *accept);
 char				*ft_strnstr(const char *haystack, const char *needle,
 						size_t len);
 char				*ft_strdup(const char *s1);
