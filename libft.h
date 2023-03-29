@@ -6,7 +6,7 @@
 /*   By: hdamitzi <hdamitzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 11:52:54 by hdamitzi          #+#    #+#             */
-/*   Updated: 2023/03/07 16:41:53 by hdamitzi         ###   ########.fr       */
+/*   Updated: 2023/03/29 17:13:49 by hdamitzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int					ft_toupper(int c);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
+int					ft_strcmp(char *s1, char *s2);
+int					ft_int_overflow(char *nbr);
 
 char				*get_next_line(int fd);
 
