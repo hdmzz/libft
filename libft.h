@@ -6,7 +6,7 @@
 /*   By: hdamitzi <hdamitzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 11:52:54 by hdamitzi          #+#    #+#             */
-/*   Updated: 2023/03/29 17:13:49 by hdamitzi         ###   ########.fr       */
+/*   Updated: 2023/03/29 17:27:29 by hdamitzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,7 @@ void				ft_putnb_base(unsigned long long nb,
 						char *base, int *total);
 void				ft_putnb(unsigned long long nl, int *total);
 void				ft_put_ptr(void *ptr, int *total);
+
+void	ft_free_split(char **tab);
 
 #endif

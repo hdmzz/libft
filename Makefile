@@ -42,7 +42,8 @@ SRCS		= ft_atoi.c \
 			ft_isdigitstr.c \
 			ft_strspn.c \
 			ft_strcmp.c \
-			ft_int_overflow.c
+			ft_int_overflow.c \
+			ft_free_split.c
 SRCS_BONUS	= ft_lstadd_back_bonus.c \
 			ft_lstadd_front_bonus.c \
 			ft_lstclear_bonus.c \
