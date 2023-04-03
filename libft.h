@@ -104,6 +104,6 @@ void				ft_putnb_base(unsigned long long nb,
 void				ft_putnb(unsigned long long nl, int *total);
 void				ft_put_ptr(void *ptr, int *total);
 
-void	ft_free_split(char **tab);
+void				ft_free_split(char **tab);
 
 #endif
