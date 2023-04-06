@@ -9,6 +9,7 @@
 /*   Updated: 2022/11/14 14:24:31 by hdamitzi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 static char	**ft_free(char **res, int i)
