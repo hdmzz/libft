@@ -48,6 +48,7 @@ SRCLIBFT = ft_atoi.c\
 	ft_strspn.c \
 	ft_strcmp.c \
 	ft_int_overflow.c \
+	ft_split_charset.c \
 	ft_free_split.c
 
 SRC_BONUS	= ft_lstadd_back_bonus.c \

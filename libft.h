@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdamitzi <hdamitzi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hdamitzi <hdamitzi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 11:52:54 by hdamitzi          #+#    #+#             */
-/*   Updated: 2023/04/05 12:51:04 by hdamitzi         ###   ########.fr       */
+/*   Updated: 2023/06/13 14:29:52 by hdamitzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,10 @@ size_t				ft_strlen(const char *s);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
+
 char				**ft_split(char const *s, char c);
+char				**ft_split_charset(char *str, char *charset);
+
 t_list				*ft_lstlast(t_list *lst);
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **lst, t_list *new);

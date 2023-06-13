@@ -6,13 +6,13 @@
 /*   By: hdamitzi <hdamitzi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 14:22:32 by hdamitzi          #+#    #+#             */
-/*   Updated: 2023/06/13 14:25:41 by hdamitzi         ###   ########.fr       */
+/*   Updated: 2023/06/13 14:29:13 by hdamitzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		check(int i, char *str, char *charset)
+static int		check(int i, char *str, char *charset)
 {
 	int j;
 
@@ -26,7 +26,7 @@ int		check(int i, char *str, char *charset)
 	return (1);
 }
 
-char	**countword(char *str, char *charset)
+static char	**countword(char *str, char *charset)
 {
 	int		i;
 	int		count;
@@ -49,7 +49,7 @@ char	**countword(char *str, char *charset)
 	return (tab);
 }
 
-char	**countchar(char *str, char *charset, char **tab)
+static char	**countchar(char *str, char *charset, char **tab)
 {
 	int i;
 	int k;
@@ -77,7 +77,7 @@ char	**countchar(char *str, char *charset, char **tab)
 	return (tab);
 }
 
-char	**fill(char *str, char *charset, char **tab)
+static char	**fill(char *str, char *charset, char **tab)
 {
 	int i;
 	int k;
