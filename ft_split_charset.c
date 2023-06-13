@@ -6,7 +6,7 @@
 /*   By: hdamitzi <hdamitzi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 14:22:32 by hdamitzi          #+#    #+#             */
-/*   Updated: 2023/06/13 14:29:13 by hdamitzi         ###   ########.fr       */
+/*   Updated: 2023/06/13 14:32:37 by hdamitzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ static char	**fill(char *str, char *charset, char **tab)
 			j++;
 		}
 		if (j != 0)
-			tab[k][j] = '\0';
+			tab[k][j] = NULL;
 		k++;
 	}
 	return (tab);
