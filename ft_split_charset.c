@@ -6,7 +6,7 @@
 /*   By: hdamitzi <hdamitzi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 14:22:32 by hdamitzi          #+#    #+#             */
-/*   Updated: 2023/06/13 14:32:37 by hdamitzi         ###   ########.fr       */
+/*   Updated: 2023/06/13 14:37:01 by hdamitzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static char	**countword(char *str, char *charset)
 	}
 	if (!(tab = (char**)malloc(sizeof(char*) * count + 1)))
 		return (NULL);
-	tab[count] = 0;
+	tab[count] = NULL;
 	return (tab);
 }
 
@@ -97,7 +97,7 @@ static char	**fill(char *str, char *charset, char **tab)
 			j++;
 		}
 		if (j != 0)
-			tab[k][j] = NULL;
+			tab[k][j] = '\0';
 		k++;
 	}
 	return (tab);
