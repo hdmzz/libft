@@ -6,15 +6,15 @@
 /*   By: hdamitzi <hdamitzi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 14:22:32 by hdamitzi          #+#    #+#             */
-/*   Updated: 2023/06/13 14:37:01 by hdamitzi         ###   ########.fr       */
+/*   Updated: 2023/06/15 13:24:35 by hdamitzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		check(int i, char *str, char *charset)
+static int	check(int i, char *str, char *charset)
 {
-	int j;
+	int	j;
 
 	j = 0;
 	while (charset[j])
@@ -43,7 +43,8 @@ static char	**countword(char *str, char *charset)
 		while (str[i] && check(i, str, charset) == 1)
 			i++;
 	}
-	if (!(tab = (char**)malloc(sizeof(char*) * count + 1)))
+	tab = (char **)malloc(sizeof(char *) * count + 1);
+	if (!tab)
 		return (NULL);
 	tab[count] = NULL;
 	return (tab);
@@ -51,12 +52,12 @@ static char	**countword(char *str, char *charset)
 
 static char	**countchar(char *str, char *charset, char **tab)
 {
-	int i;
-	int k;
-	int count;
+	int	i;
+	int	k;
+	int	count;
 
 	count = 0;
-	k = 0;
+	k = -1;
 	i = 0;
 	while (str[i])
 	{
@@ -69,7 +70,8 @@ static char	**countchar(char *str, char *charset, char **tab)
 		}
 		if (count != 0)
 		{
-			if (!(tab[k++] = (char*)malloc(sizeof(char) * count + 1)))
+			tab[++k] = (char *)malloc(sizeof(char) * count + 1);
+			if (!tab[k])
 				return (NULL);
 			count = 0;
 		}
@@ -79,9 +81,9 @@ static char	**countchar(char *str, char *charset, char **tab)
 
 static char	**fill(char *str, char *charset, char **tab)
 {
-	int i;
-	int k;
-	int j;
+	int	i;
+	int	k;
+	int	j;
 
 	i = 0;
 	k = 0;
